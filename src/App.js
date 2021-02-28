@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import { isEmpty, size } from 'lodash'
 import shortid from 'shortid'
 
- function App (){
+ function App () {
   const [pet, setPet] = useState("")
   const [pets, setPets] = useState([])
+  const [editMode, setEditMode] = useState(false)
+  const [id, setId] = useState("")
 
   const addPet = (e) =>{
     e.preventDefault()
@@ -12,14 +14,20 @@ import shortid from 'shortid'
       console.log("pet empty")
       return
     }
+
  
     const newPet = {
-      id: shortid.generate(),
-      name: pet
+    id: shortid.generate(),
+    name: pet
     }
     setPets([...pets, newPet])
     setPet("")
 
+  }
+
+  const editPet = (id) => {
+    setEditMode(true)
+    setId(id)
   }
   
 
@@ -76,7 +84,11 @@ import shortid from 'shortid'
                   pets.map((pet) =>(
                   <li className="list-group-item" key={pet.id}>
                     <span className="lead">{pet.name}</span>
-                    <button className="btn btn-dark float-right">Modificar</button>
+                    <button 
+                      className="btn btn-dark float-right"
+                      onClick={() => editPet(pet.id)}
+                      > Modificar
+                    </button>
                   </li>
                   ))
                 }
@@ -88,4 +100,5 @@ import shortid from 'shortid'
     
    )
   }
+
 export default App
