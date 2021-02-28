@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+ import React from 'react'
+ function App (){
+   return (
+    <div>
+      <div className="jumbotron text-center">
+        <h2>Mascotas</h2>
+        <hr/>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-2">
+            <h10>Nombre de Mascota</h10>
+            <input type="text" placeholder="Escribir Nombre"></input>
+             <div>
+              <h10>Tipo de Mascota</h10>
+              <input type="text" placeholder="Perro, gato u otro"></input>
+             </div>
+            </div>
+            <div className="col-sm-2">
+              <h10>Raza de  Mascota</h10>
+              <input type="text" placeholder="Escribir raza"></input>
+              <div>
+               <h10>Fecha de nacimiento</h10>
+               <input type="text" placeholder="DD-MM-AAAA"></input>  
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <h10>Propietario</h10>
+              <input type="text" placeholder="Escribir nombre"></input>
+               <div>
+                <h10>Email</h10>
+                <input type="text" placeholder="Escribir E-mail"></input>
+               </div>
+            </div>
+            <div className="col-sm-2">
+              <h10>Direccion</h10>
+              <input type="text" placeholder="Escribir Direccion"></input>
+            </div>
+            <div className="col-sm-2">
+              <button className="btn btn float-right mx-2">Agregar</button>
+              <button className="btn btn-dark float-right">Modificar</button>
+            </div>        
+         </div> 
+        </div>
+      </div>
+     </div>
+    
+   )
+  }
+export default App
