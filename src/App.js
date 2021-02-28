@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { initial, isEmpty } from 'lodash'
+import { isEmpty, size } from 'lodash'
 import shortid from 'shortid'
 
  function App (){
@@ -67,7 +67,9 @@ import shortid from 'shortid'
         </div>
       </div>
         <div>
+          <h5 className="text-center">Lista de mascotas</h5>
           {
+            
             pets.map((pet) =>(
             <li className="list-group-item" key={pet.id}>
               <span className="lead">{pet.name}</span>
