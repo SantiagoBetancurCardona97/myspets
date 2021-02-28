@@ -69,14 +69,20 @@ import shortid from 'shortid'
         <div>
           <h5 className="text-center">Lista de mascotas</h5>
           {
-            
-            pets.map((pet) =>(
-            <li className="list-group-item" key={pet.id}>
-              <span className="lead">{pet.name}</span>
-              <button className="btn btn-dark float-right">Modificar</button>
-            </li>
-            ))
-          }
+            size(pets) === 0 ? (
+              <li className="list-group-item">Aun no hay mascotas registradas</li>
+              ) : (<ul className="list-group">
+                {
+                  pets.map((pet) =>(
+                  <li className="list-group-item" key={pet.id}>
+                    <span className="lead">{pet.name}</span>
+                    <button className="btn btn-dark float-right">Modificar</button>
+                  </li>
+                  ))
+                }
+              </ul>
+            )
+          }   
         </div>
      </div>
     
