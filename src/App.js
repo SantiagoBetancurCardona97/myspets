@@ -25,9 +25,25 @@ import shortid from 'shortid'
 
   }
 
-  const editPet = (id) => {
+  const savePet = (e) =>{
+    e.preventDefault()
+    if(isEmpty(pet)){
+      console.log("pet empty")
+      return
+    }
+
+    const editedPets = pets.map(item => item.id === id ? {id, name:pet} : item)
+    setPets(editedPets)
+    setEditMode(false)
+    setPet("")
+    setId("")
+
+  }
+
+  const editPet = (thePet) => {
+    setPet (thePet.name)
     setEditMode(true)
-    setId(id)
+    setId(thePet.id)
   }
   
 
@@ -36,8 +52,9 @@ import shortid from 'shortid'
       <div className="jumbotron text-center">
         <h2>Mascotas</h2>
         <hr/>
+        <h5 className="text-center">{editMode ? "Modificando" : "Agregando"}</h5>
         <div className="container">
-          <form onSubmit={addPet}>
+          <form onSubmit={editMode ? savePet : addPet}>
           <div className="row">
             <div className="col-3">
             <h10>Nombre de Mascota</h10>
@@ -68,7 +85,7 @@ import shortid from 'shortid'
             <div className="col-3">
               <h10>Direccion Propietario</h10>
               <input type="text" placeholder="Escribir Direccion"></input>
-              <button className="btn btn float-dark mx-2">Agregar</button>
+              <button className="btn btn float-dark mx-2">Guardar</button>
             </div>        
          </div>
          </form> 
@@ -86,7 +103,7 @@ import shortid from 'shortid'
                     <span className="lead">{pet.name}</span>
                     <button 
                       className="btn btn-dark float-right"
-                      onClick={() => editPet(pet.id)}
+                      onClick={() => editPet(pet)}
                       > Modificar
                     </button>
                   </li>
