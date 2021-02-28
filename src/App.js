@@ -6,6 +6,7 @@
         <h2>Mascotas</h2>
         <hr/>
         <div className="container">
+          <form>
           <div className="row">
             <div className="col-sm-2">
             <h10>Nombre de Mascota</h10>
@@ -39,7 +40,8 @@
               <button className="btn btn float-right mx-2">Agregar</button>
               <button className="btn btn-dark float-right">Modificar</button>
             </div>        
-         </div> 
+         </div>
+         </form> 
         </div>
       </div>
      </div>
